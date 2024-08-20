@@ -4,10 +4,11 @@
 
 using namespace std;
 
-// 定义方向数组，分别表示上、右、下、左四个方向
-int dx[4] = {-1, 0, 1, 0};
-int dy[4] = {0,  1, 0, -1};
- vector<vector<int>> visited(m, vector<int>(n, 0));
+// 定义方向数组，分别表示右、下、左、上四个方向
+int dx[4] = {0, 1, 0, -1};
+int dy[4] = {1, 0,  -1, 0};
+const int n=4;
+ vector<vector<int>> visited(n, vector<int>(n, 0));
 int patrol_area(vector<vector<int>>& grid) {
     int m = grid.size();
     int n = grid[0].size();
@@ -42,14 +43,14 @@ int patrol_area(vector<vector<int>>& grid) {
     dfs(0, 0, 1);
     return patrolled;
 }
-const int n=4;
+
 int main() {
    // int m, n;
    // cin >> m >> n;
     vector<vector<int>> grid(n, vector<int>(n));
     grid={
-        {0,1,1,1},
-        {0,1,1,1},
+        {0,0,1,1},
+        {1,1,0,1},
         {0,1,0,1},
         {0,1,0,1},
     };
@@ -64,6 +65,7 @@ int main() {
 
     return 0;
 }
+
 
 /*
 LYA 公司正在开发一款用于巡逻的无人机。这款无人机被部署在一个矩形区域内，该区域由 
